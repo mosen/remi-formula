@@ -15,10 +15,15 @@
     'key_hash': 'md5=3abb4e5a7b1408c888e19f718c012630',
     'rpm': 'http://mirrors.mediatemple.net/remi/enterprise/remi-release-7.rpm',
   },
+  'CentOS Linux-7': {
+    'key': 'http://rpms.famillecollet.com/RPM-GPG-KEY-remi',
+    'key_hash': 'md5=3abb4e5a7b1408c888e19f718c012630',
+    'rpm': 'http://mirrors.mediatemple.net/remi/enterprise/remi-release-7.rpm',
+  }
 }, 'osfinger') %}
 
 # Completely ignore non-CentOS, non-RHEL systems
-{% if grains['osfullname'] in ('CentOS', 'RHEL') %}
+{% if grains['osfullname'] in ('CentOS', 'CentOS Linux', 'RHEL') %}
 
 install_remi_pubkey:
   file.managed:
